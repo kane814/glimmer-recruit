@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,//是否在入口处暂停（此处为否）
+      "externalConsole": true,//使用外置终端（独立黑窗口），调试时也能正常输入 scanf/cin
+      "avoidWindowsConsoleRedirection": true,//关键：Windows 上关掉控制台重定向，否则程序输出不会出现在黑窗口里
+      "cwd": "${workspaceFolder}",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",//本来写死，照着示例改了，别人拿到配置可以直接用。注意.c和.exe要在一起
+      "preLaunchTask": "C/C++: gcc.exe 生成活动文件",//按 F5 前先编译当前文件（须与 tasks.json 里的任务标签一致）
+      "MIMode": "gdb",//同下理
+      "miDebuggerPath": "gdb",//帮我找到debug工具。我已经写入环境变量中了，不用把路径写这
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
